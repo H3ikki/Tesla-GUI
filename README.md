@@ -37,7 +37,8 @@ homeassistant:
 8. Go to dashboard and create new "Manual card"
 9. Copy-Paste "Car_card.txt" to the manual card code
 10. My car is called "Tessu" so and that is also in the entity name so search and replace "tessu" with your own entity name
-11. Enjoy!
+11. Customise the pictures if available by search MYP_White and replace with your model like MS_Blue
+12. Enjoy!
 
 ### Wall Connector card
 1. Add https://www.home-assistant.io/integrations/tesla_wall_connector integration
