@@ -29,14 +29,14 @@ To make things easy you should have some addon to gain access to the file system
 3. Copy "Tesla GUI" folder https://github.com/H3ikki/Tesla-GUI/tree/main/Tesla-GUI from trunk to Home assistant file system, /config/www/ *here* So the result should be Config/www/Tesla-GUI
 4. Add the Tesla GUI to configuration.yaml by adding following lines:<br>
 homeassistant:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;packages:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tesla_gui: !include www/Tesla-GUI/Tesla GUI.yaml<br>
-5. Replace "tessu" with your tesla entity at /config/www/Tesla-GUI/Tesla GUI.yaml
+&nbsp;&nbsp;packages:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tesla_gui: !include www/Tesla-GUI/Tesla GUI.yaml<br>
+5. Replace "tessu" with your tesla entity name (nickname by default) at /config/www/Tesla-GUI/Tesla GUI.yaml
 6. Check that everything is working by Developer tools --> YAML Settings --> Check Settings
 7. If all good, then proceed by quick reboot at developer tools.
 8. Go to dashboard and create new "Manual card"
 9. Copy-Paste "Car_card.txt" to the manual card code
-10. My car is called "Tessu" so and that is also in the entity name so search and replace "tessu" with your own entity name
+10. My car is called "Tessu" so and that is also in the entity name so search and replace "tessu" with your own entity name and the "Tessu" with capital for main view
 11. Customise the pictures if available by search MYP_White and replace with your model like MS_Blue
 12. Enjoy!
 
