@@ -3,10 +3,10 @@ cards:
   - type: horizontal-stack
     cards:
       - type: picture-elements
-        image: /local/Tesla GUI/Assets/1080BG.png
+        image: /local/Tesla-GUI/Assets/1080BG.png
         elements:
           - type: image
-            image: /local/Tesla GUI/Assets/Wall_Connector.png
+            image: /local/Tesla-GUI/Assets/Wall_Connector.png
             style:
               top: 55%
               left: 55%
