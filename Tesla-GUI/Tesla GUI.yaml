@@ -14,6 +14,28 @@ sensor:
           {% endif %}
           {{ time }}
 
+      wallconnector_state:
+        friendly_name: "Wall Conector status"
+        value_template: >-
+          {% set state = 'Wall Connector is not connected' %}
+          {% if is_state('binary_sensor.tesla_wall_connector_vehicle_connected','on') %} 
+            {% set state = 'Wall Connector is connected'%} 
+          {% else %}                                        
+          {% endif %}
+          {{ state }}
+
+      wall_charger_current_power:
+        friendly_name: "Wall Conector current power"
+        value_template: >-
+          {% set I1 = states('sensor.tesla_wall_connector_phase_a_current') | float %}
+          {% set U1 = states('sensor.tesla_wall_connector_phase_a_voltage') | float %}
+          {% set I2 = states('sensor.tesla_wall_connector_phase_b_current') | float %}
+          {% set U2 = states('sensor.tesla_wall_connector_phase_b_voltage') | float %}
+          {% set I3 = states('sensor.tesla_wall_connector_phase_c_current') | float %}
+          {% set U3 = states('sensor.tesla_wall_connector_phase_c_voltage') | float %}
+          {% set Total_Power = ((I1*U1 + I2*U2 + I3*U3) / 1000) | round(1, default=0) %}
+          Total Power {{ Total_Power }} kW
+
       blank_blank:
         friendly_name: "Blank Blank"
         value_template: " "
