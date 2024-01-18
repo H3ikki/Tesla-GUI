@@ -1,5 +1,5 @@
 # The Tesla-GUI
-Graphical User Interface for Tesla and Wall Connector to Home Assistant.
+Graphical User Interface for Tesla and Wall Connector to Home Assistant. Frontend with image card and elements.
 
 This GUI is using incredible work of alandtse https://github.com/alandtse/tesla as data source for almost everything. The UX / UI was drawn from Mobile App and most of the usable functions have been added that makes sense to use trough Home Assistant. Also shoutout to ds2000 https://github.com/ds2000/homeassistant-fe-tesla for initial idea. I have White MYP so the initial version will have only these available. I can add new pictures to the GUI if some one provides the screen shots from their car.
 
