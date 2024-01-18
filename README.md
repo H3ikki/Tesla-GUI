@@ -9,6 +9,7 @@ This GUI is using incredible work of alandtse https://github.com/alandtse/tesla 
 The GUI has buttons below the image and four different menus. Inside the menus there are buttons that will actually make changes to your car. Some features are not working yet and they may be finalized in the future...
 
 ![alt text](https://github.com/H3ikki/Tesla-GUI/blob/main/Images/MainView3.png)
+![alt text](https://github.com/H3ikki/Tesla-GUI/blob/main/Images/MainView3_MS_Blue.png)
 
 The Image will change if the charging cable is connected and the charging current and limit can be changed from UI. Scheduling is also visible if it is in use and the charging time will be shown.
 
