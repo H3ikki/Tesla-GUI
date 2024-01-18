@@ -19,6 +19,10 @@ GUI also covers the Wall Connector and it shows the main information with simila
 ## Installation
 
 This gives some pain since I have seen so many badly documented instructions, maybe this will be different:
+
+### Prework
+To make things easy you should have some addon to gain access to the file system and files. All following steps can be done with https://github.com/hassio-addons/addon-vscode
+
 ### Car card
 1. Add custom integration from https://github.com/alandtse/tesla
 2. Make it work with your vehicle as instructed
