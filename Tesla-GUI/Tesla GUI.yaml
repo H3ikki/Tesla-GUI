@@ -1,0 +1,37 @@
+sensor:
+  - platform: template
+    sensors:
+      tesla_ha_charging_chedule:
+        friendly_name: "Charging chedule string"
+        value_template: >-
+          {% set enabled = states('binary_sensor.tessu_scheduled_charging')  %}
+          {% if enabled == 'on' %}
+            {% set minutes = state_attr('binary_sensor.tessu_scheduled_charging', 'Scheduled charging time')  %}
+            {% set timestamp = today_at("00:00")  + timedelta(minutes/1440) %}
+            {% set time = timestamp | as_timestamp | timestamp_custom('%H:%M') %}
+          {% else %}
+            {% set time = "" %}
+          {% endif %}
+          {{ time }}
+
+      blank_blank:
+        friendly_name: "Blank Blank"
+        value_template: " "
+
+input_select:
+  view_selection:
+    name: Main views
+    options:
+      - view1
+      - view2
+      - view3
+      - view4
+      - view5
+    initial: view1
+
+  view1_sub:
+    name: Sub views
+    options:
+      - sub1
+      - sub2
+    initial: sub1
