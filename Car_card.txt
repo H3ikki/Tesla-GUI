@@ -1,0 +1,725 @@
+type: custom:stack-in-card
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: picture-elements
+        image: /local/Tesla GUI/Assets/1080BG.png
+        elements:
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tessu_charger
+                state: 'off'
+              - entity: cover.tessu_charger_door
+                state_not: open
+            elements:
+              - type: image
+                title: Idle tesla
+                image: /local/Tesla GUI/Assets/MYP_White.png
+                style:
+                  top: 40%
+                  left: 50%
+                  width: 80%
+            tap_action:
+              toggle: null
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tessu_charger
+                state_not: 'on'
+              - entity: cover.tessu_charger_door
+                state: open
+            elements:
+              - type: image
+                title: Port open tesla
+                image: /local/Tesla GUI/Assets/MYP_White_PortOpen.png
+                style:
+                  top: 40%
+                  left: 50%
+                  width: 80%
+            tap_action:
+              toggle: null
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.tessu_charger
+                state: 'on'
+              - entity: cover.tessu_charger_door
+                state: open
+            elements:
+              - type: image
+                title: Charging tesla
+                image: /local/Tesla GUI/Assets/MYP_White_Charging.png
+                style:
+                  top: 40%
+                  left: 50%
+                  width: 80%
+            tap_action:
+              toggle: null
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Tessu
+            style:
+              top: 5%
+              left: 5%
+              font-weight: bold
+              font-size: 200%
+              color: '#dddddd'
+              font-family: gotham
+              transform: translate(0%,-50%)
+          - type: state-label
+            entity: sensor.tessu_battery
+            style:
+              top: 10%
+              left: 22%
+              font-weight: bold
+              font-size: 140%
+              color: '#8a8a8d'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tessu_data_last_update_time
+            style:
+              top: 0%
+              left: 100%
+              font-weight: regular
+              font-size: 100%
+              color: '#8a8a8d'
+              font-family: gotham
+              transform: translate(-100%,0%)
+          - type: state-icon
+            title: Refresh Data
+            entity: button.tessu_force_data_update
+            icon: mdi:refresh
+            style:
+              top: 5%
+              left: 100%
+              color: '#039be5'
+              width: 10%
+              height: null
+              transform: translate(-100%,0%)
+            tap_action:
+              action: call-service
+              service: button.press
+              service_data: {}
+              target:
+                entity_id: button.tessu_force_data_update
+            double_tap_action: none
+            hold_action: none
+          - type: state-icon
+            entity: sensor.tessu_battery
+            attribute: icon
+            style:
+              top: 7%
+              left: 6%
+              transform: scale(1.25) rotate(0.25turn)
+              '--paper-item-icon-color': '#8a8a8d'
+          - type: image
+            image: /local/Tesla GUI/Assets/Buttons/Tesla_Car.png
+            title: Car menu
+            style:
+              top: 65%
+              left: 18%
+              width: 12%
+              height: null
+            state_image:
+              view1: /local/Tesla GUI/Assets/Buttons/Tesla_Car_Active.png
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id:
+                  - input_select.view_selection
+              data:
+                option: view1
+            entity: input_select.view_selection
+            double_tap_action: none
+            hold_action: none
+          - type: image
+            image: /local/Tesla GUI/Assets/Buttons/Tesla_Lock_Passive.png
+            title: Lock menu
+            style:
+              top: 65%
+              left: 39%
+              width: 12%
+              height: null
+            state_image:
+              view2: /local/Tesla GUI/Assets/Buttons/Tesla_Lock_Active.png
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id:
+                  - input_select.view_selection
+              data:
+                option: view2
+            entity: input_select.view_selection
+            double_tap_action: none
+            hold_action: none
+          - type: image
+            image: /local/Tesla GUI/Assets/Buttons/Tesla_Climate_Fan_Off.png
+            title: Climate menu
+            style:
+              top: 65%
+              left: 61%
+              width: 10%
+              height: null
+            state_image:
+              view3: /local/Tesla GUI/Assets/Buttons/Tesla_Climate_Fan_On.png
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id:
+                  - input_select.view_selection
+              data:
+                option: view3
+            entity: input_select.view_selection
+            double_tap_action: none
+            hold_action: none
+          - type: image
+            title: Charger menu
+            image: /local/Tesla GUI/Assets/Buttons/Tesla_Charge_Port_Closed.png
+            style:
+              top: 65%
+              left: 82%
+              width: 10%
+              height: null
+            state_image:
+              view4: /local/Tesla GUI/Assets/Buttons/Tesla_Charge_Port_Open.png
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id:
+                  - input_select.view_selection
+              data:
+                option: view4
+            double_tap_action: none
+            hold_action: none
+            entity: input_select.view_selection
+          - type: state-label
+            entity: input_select.view_selection
+            style:
+              top: '-3%'
+              left: 50%
+          - type: state-label
+            entity: input_select.view1_sub
+            style:
+              top: '-3%'
+              left: 50%
+          - type: conditional
+            conditions:
+              - entity: input_select.view_selection
+                state: view1
+            elements:
+              - type: icon
+                icon: mdi:chevron-left
+                style:
+                  top: 84%
+                  left: 3%
+                  color: '#8a8a8d'
+                  transform: scale(1.5)
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id:
+                      - input_select.view1_sub
+                  data:
+                    option: sub1
+              - type: icon
+                icon: mdi:chevron-right
+                style:
+                  top: 84%
+                  left: 93%
+                  color: '#8a8a8d'
+                  transform: scale(1.5)
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id:
+                      - input_select.view1_sub
+                  data:
+                    option: sub2
+              - type: conditional
+                conditions:
+                  - entity: input_select.view1_sub
+                    state: sub1
+                elements:
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Cabin Temperature
+                    style:
+                      left: 30%
+                      top: 73%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_temperature_inside
+                    style:
+                      top: 80%
+                      left: 30%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Outside Temperature
+                    style:
+                      left: 30%
+                      top: 84%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_temperature_outside
+                    style:
+                      top: 91%
+                      left: 30%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Current Range
+                    style:
+                      left: 100%
+                      top: 73%
+                      width: 80%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_range
+                    style:
+                      top: 80%
+                      left: 73%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Odometer
+                    style:
+                      left: 73%
+                      top: 84%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_odometer
+                    style:
+                      top: 91%
+                      left: 73%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+              - type: conditional
+                conditions:
+                  - entity: input_select.view1_sub
+                    state: sub2
+                elements:
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Front Left
+                    style:
+                      left: 30%
+                      top: 73%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_tpms_front_left
+                    style:
+                      top: 80%
+                      left: 30%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Rear Left
+                    style:
+                      left: 30%
+                      top: 84%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_tpms_rear_left
+                    style:
+                      top: 91%
+                      left: 30%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Front Right
+                    style:
+                      left: 73%
+                      top: 73%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_tpms_front_right
+                    style:
+                      top: 80%
+                      left: 73%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Rear Right
+                    style:
+                      left: 73%
+                      top: 84%
+                      font-weight: bold
+                      font-family: gotham
+                      transform: translate(-50%,0)
+                  - type: state-label
+                    entity: sensor.tessu_tpms_rear_right
+                    style:
+                      top: 91%
+                      left: 73%
+                      font-weight: bold
+                      font-size: 160%
+                      color: '#8a8a8d'
+                      font-family: gotham
+          - type: conditional
+            conditions:
+              - entity: input_select.view_selection
+                state: view2
+            elements:
+              - type: state-label
+                entity: sensor.blank_blank
+                prefix: Doors
+                style:
+                  left: 30%
+                  top: 73%
+                  font-weight: bold
+                  font-family: gotham
+                  transform: translate(-50%,0)
+              - type: image
+                title: Unlock
+                style:
+                  top: 80%
+                  left: 18%
+                  width: 8%
+                  height: null
+                state_image:
+                  locked: /local/Tesla GUI/Assets/Buttons/Tesla_Lock_Passive.png
+                  unlocked: /local/Tesla GUI/Assets/Buttons/Tesla_Door_Unlock.png
+                tap_action:
+                  action: toggle
+                entity: lock.tessu_doors
+                double_tap_action: none
+                hold_action: none
+              - type: state-label
+                title: Unlock
+                style:
+                  top: 80%
+                  left: 31%
+                  font-weight: bold
+                  font-size: 160%
+                  color: '#8a8a8d'
+                  font-family: gotham
+                tap_action:
+                  action: toggle
+                entity: lock.tessu_doors
+              - type: state-label
+                entity: sensor.blank_blank
+                prefix: Charger port latch
+                style:
+                  left: 30%
+                  top: 84%
+                  font-weight: bold
+                  font-family: gotham
+                  transform: translate(-50%,0)
+              - type: image
+                title: Unlock
+                style:
+                  top: 91%
+                  left: 18%
+                  width: 8%
+                  height: null
+                state_image:
+                  locked: /local/Tesla GUI/Assets/Buttons/Tesla_Charge_Port_Closed.png
+                  unlocked: /local/Tesla GUI/Assets/Buttons/Tesla_Charge_Port_Open.png
+                tap_action:
+                  action: toggle
+                entity: lock.tessu_charge_port_latch
+                double_tap_action: none
+                hold_action: none
+              - type: state-label
+                title: Unlock
+                style:
+                  top: 91%
+                  left: 31%
+                  font-weight: bold
+                  font-size: 160%
+                  color: '#8a8a8d'
+                  font-family: gotham
+                tap_action:
+                  action: toggle
+                entity: lock.tessu_charge_port_latch
+              - type: state-label
+                entity: sensor.blank_blank
+                prefix: Frunk
+                style:
+                  left: 70%
+                  top: 73%
+                  font-weight: bold
+                  font-family: gotham
+                  transform: translate(-50%,0)
+              - type: image
+                title: Open
+                style:
+                  top: 80%
+                  left: 58%
+                  width: 8%
+                  height: null
+                state_image:
+                  open: /local/Tesla GUI/Assets/Buttons/Tesla_Frunk_Opened.png
+                  closed: /local/Tesla GUI/Assets/Buttons/Tesla_Frunk_Closed.png
+                tap_action:
+                  action: toggle
+                entity: cover.tessu_frunk
+                double_tap_action: none
+                hold_action: none
+              - type: state-label
+                title: Unlock
+                style:
+                  top: 80%
+                  left: 73%
+                  font-weight: bold
+                  font-size: 160%
+                  color: '#8a8a8d'
+                  font-family: gotham
+                tap_action:
+                  action: toggle
+                entity: cover.tessu_frunk
+          - type: conditional
+            conditions:
+              - entity: input_select.view_selection
+                state: view3
+            elements:
+              - type: state-label
+                entity: sensor.blank_blank
+                prefix: Click to edit
+                style:
+                  left: 50%
+                  top: 91%
+                  font-family: gotham
+                  '--ha-card-box-shadow': none
+                  '--ha-card-background': transparent
+                  text-primary-color: '#8a8a8d'
+              - type: state-label
+                prefix: 'Interior '
+                entity: sensor.tessu_temperature_inside
+                style:
+                  top: 75%
+                  left: 50%
+                  font-size: 100%
+                  color: '#8a8a8d'
+                  font-family: gotham
+                  font-weight: bold
+                  transform: translate(-100%,0)
+              - type: state-label
+                prefix: '- Exterior '
+                entity: sensor.tessu_temperature_outside
+                style:
+                  top: 75%
+                  left: 48%
+                  font-size: 100%
+                  color: '#8a8a8d'
+                  font-family: gotham
+                  font-weight: bold
+                  transform: translate(0,0)
+              - type: image
+                title: ClimateIcon
+                image: >-
+                  /local/Tesla
+                  HA/Assets/Buttons/Tesla_Climate_Button_Power_On.png
+                style:
+                  top: 88%
+                  left: 15%
+                  width: 15%
+                  height: null
+                state_image:
+                  'off': >-
+                    /local/Tesla
+                    HA/Assets/Buttons/Tesla_Climate_Button_Power_Off.png
+                tap_action:
+                  action: toggle
+                entity: climate.tessu_hvac_climate_system
+                double_tap_action: none
+                hold_action: none
+              - type: state-label
+                entity: climate.tessu_hvac_climate_system
+                attribute: temperature
+                style:
+                  top: 86%
+                  left: 52%
+                  font-size: 250%
+                  font-family: gotham
+                  color: '#8a8a8d'
+                suffix: °
+              - type: icon
+                icon: mdi:chevron-left
+                style:
+                  top: 84%
+                  left: 28%
+                  color: '#8a8a8d'
+                  transform: scale(1.5)
+                tap_action:
+                  action: toggle
+              - type: icon
+                icon: mdi:chevron-right
+                style:
+                  top: 84%
+                  left: 68%
+                  color: '#8a8a8d'
+                  transform: scale(1.5)
+                tap_action:
+                  action: toggle
+              - type: image
+                title: ClimateIcon
+                image: >-
+                  /local/Tesla
+                  HA/Assets/Buttons/Tesla_Vent_Windows_Button_On.png
+                style:
+                  top: 88%
+                  left: 85%
+                  width: 18%
+                  height: null
+                state_image:
+                  'off': >-
+                    /local/Tesla
+                    HA/Assets/Buttons/Tesla_Vent_Windows_Button_Off.png
+                tap_action:
+                  action: toggle
+                entity: climate.tessu_hvac_climate_system
+                double_tap_action: none
+                hold_action: none
+          - type: conditional
+            conditions:
+              - entity: input_select.view_selection
+                state: view4
+            elements:
+              - type: state-label
+                prefix: 'Charge limit: '
+                entity: number.tessu_charge_limit
+                style:
+                  top: 73%
+                  left: 6%
+                  font-weight: bold
+                  font-size: 115%
+                  color: '#dddddd'
+                  font-family: gotham
+                  transform: translate(0%,0%)
+              - type: custom:slider-entity-row
+                entity: number.tessu_charge_limit
+                style:
+                  top: 84%
+                  left: 50%
+                  width: 93%
+                full_row: true
+                step: 5
+                max: 100
+                min: 50
+                colorize: true
+                hide_state: true
+              - type: state-label
+                entity: number.tessu_charging_amps
+                show_icon: false
+                show_name: false
+                style:
+                  top: 90.5%
+                  left: 50%
+                  font-weight: bold
+                  font-size: 150%
+                  color: '#dddddd'
+                  font-family: gotham
+              - type: icon
+                icon: mdi:chevron-left
+                style:
+                  top: 89%
+                  left: 10%
+                  transform: scale(1.5)
+                tap_action:
+                  action: toggle
+              - type: icon
+                icon: mdi:chevron-right
+                style:
+                  top: 89%
+                  left: 85%
+                  transform: scale(1.5)
+                tap_action:
+                  toggle: null
+              - type: state-label
+                entity: sensor.blank_blank
+                prefix: Click to edit
+                style:
+                  left: 50%
+                  top: 95%
+                  font-family: gotham
+                  color: '#8a8a8d'
+              - type: conditional
+                conditions:
+                  - entity: binary_sensor.tessu_charger
+                    state: 'off'
+                  - entity: lock.tessu_charge_port_latch
+                    state: locked
+                elements:
+                  - type: state-label
+                    entity: sensor.tessu_energy_added
+                    suffix: ' added during last charging session'
+                    style:
+                      left: 6%
+                      top: 77%
+                      color: '#8a8a8d'
+                      width: 100%
+                      transform: translate(0%,0%)
+              - type: conditional
+                conditions:
+                  - entity: binary_sensor.tessu_scheduled_charging
+                    state: 'on'
+                  - entity: binary_sensor.tessu_charger
+                    state: 'on'
+                elements:
+                  - type: state-label
+                    entity: sensor.tesla_ha_charging_chedule
+                    prefix: 'Charging is cheduled to start at '
+                    style:
+                      left: 6%
+                      top: 77%
+                      color: '#8a8a8d'
+                      width: 100%
+                      transform: translate(0%,0%)
+              - type: conditional
+                conditions:
+                  - entity: binary_sensor.tessu_scheduled_charging
+                    state: 'on'
+                  - entity: binary_sensor.tessu_charger
+                    state: 'off'
+                  - entity: lock.tessu_charge_port_latch
+                    state: unlocked
+                elements:
+                  - type: state-label
+                    entity: sensor.blank_blank
+                    prefix: Ready for charging - connect the cable
+                    style:
+                      left: 6%
+                      top: 77%
+                      color: '#8a8a8d'
+                      width: 100%
+                      transform: translate(0%,0%)

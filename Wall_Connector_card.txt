@@ -1,0 +1,199 @@
+type: custom:stack-in-card
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: picture-elements
+        image: /local/Tesla GUI/Assets/1080BG.png
+        elements:
+          - type: image
+            image: /local/Tesla GUI/Assets/Wall_Connector.png
+            style:
+              top: 55%
+              left: 55%
+              width: 55%
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Connector status
+            style:
+              left: 50%
+              top: 4%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Phase 1
+            style:
+              left: 15%
+              top: 75%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Phase 2
+            style:
+              left: 15%
+              top: 80%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Phase 3
+            style:
+              left: 15%
+              top: 85%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Current
+            style:
+              left: 35%
+              top: 71%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Voltage
+            style:
+              left: 85%
+              top: 71%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Total Power
+            style:
+              left: 20%
+              top: 16%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_energia
+            style:
+              top: 20%
+              left: 20%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Grid Voltage
+            style:
+              left: 50%
+              top: 16%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_grid_voltage
+            style:
+              top: 20%
+              left: 50%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.blank_blank
+            prefix: Grid Frequency
+            style:
+              left: 80%
+              top: 16%
+              font-weight: bold
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_grid_frequency
+            style:
+              top: 20%
+              left: 80%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.wallconnector_state
+            style:
+              top: 8%
+              left: 50%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_handle_temperature
+            style:
+              top: 50%
+              left: 80%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: icon
+            icon: mdi:thermometer
+            style:
+              top: 43%
+              left: 75%
+              transform: scale(1)
+          - type: state-label
+            entity: sensor.tesla_wall_connector_phase_a_current
+            style:
+              top: 75%
+              left: 35%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_phase_b_current
+            style:
+              top: 80%
+              left: 35%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_phase_c_current
+            style:
+              top: 85%
+              left: 35%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_phase_a_voltage
+            style:
+              top: 75%
+              left: 85%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_phase_b_voltage
+            style:
+              top: 80%
+              left: 85%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.tesla_wall_connector_phase_c_voltage
+            style:
+              top: 85%
+              left: 85%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
+          - type: state-label
+            entity: sensor.wall_charger_current_power
+            style:
+              top: 93%
+              left: 50%
+              font-weight: bold
+              font-size: 150%
+              color: '#dddddd'
+              font-family: gotham
