@@ -26,19 +26,22 @@ To make things easy you should have some addon to gain access to the file system
 ### Car card
 1. Add custom integration from https://github.com/alandtse/tesla
 2. Make it work with your vehicle as instructed
-3. Copy "Tesla GUI" folder https://github.com/H3ikki/Tesla-GUI/tree/main/Tesla-GUI from trunk to Home assistant file system, /config/www/ *here* So the result should be Config/www/Tesla-GUI
-4. Add the Tesla GUI to configuration.yaml by adding following lines:<br>
+3. Add "Stack In Card" by @RomRider from HACS or manually (https://github.com/custom-cards/stack-in-card)
+4. Add "slider-entity-row" from HACS or manually (https://github.com/thomasloven/lovelace-slider-entity-row)
+5. Add the Gotham font to the Dashboard Resources: https://fonts.cdnfonts.com/css/gotham. Go to Settings/Dashboards and click on the 3-dot menu at the top right.
+6. Copy "Tesla GUI" folder https://github.com/H3ikki/Tesla-GUI/tree/main/Tesla-GUI from trunk to Home assistant file system, /config/www/ *here* So the result should be Config/www/Tesla-GUI
+7. Add the Tesla GUI to configuration.yaml by adding following lines:<br>
 homeassistant:<br>
 &nbsp;&nbsp;packages:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;tesla_gui: !include www/Tesla-GUI/Tesla GUI.yaml<br>
-5. Replace "tessu" with your tesla entity name (nickname by default) at /config/www/Tesla-GUI/Tesla GUI.yaml
-6. Check that everything is working by Developer tools --> YAML Settings --> Check Settings
-7. If all good, then proceed by quick reboot at developer tools.
-8. Go to dashboard and create new "Manual card"
-9. Copy-Paste "Car_card.txt" to the manual card code
-10. My car is called "Tessu" so and that is also in the entity name so search and replace "tessu" with your own entity name and the "Tessu" with capital for main view
-11. Customise the pictures if available by search MYP_White and replace with your model like MS_Blue
-12. Enjoy!
+8. Replace "tessu" with your tesla entity name (nickname by default) at /config/www/Tesla-GUI/Tesla GUI.yaml
+9. Check that everything is working by Developer tools --> YAML Settings --> Check Settings
+10. If all good, then proceed by quick reboot at developer tools.
+11. Go to dashboard and create new "Manual card"
+12. Copy-Paste "Car_card.txt" to the manual card code
+13. My car is called "Tessu" so and that is also in the entity name so search and replace "tessu" with your own entity name and the "Tessu" with capital for main view
+14. Customise the pictures if available by search MYP_White and replace with your model like MS_Blue
+15. Enjoy!
 
 ### Wall Connector card
 1. Add https://www.home-assistant.io/integrations/tesla_wall_connector integration
