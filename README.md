@@ -38,7 +38,7 @@ homeassistant:<br>
 9. Check that everything is working by Developer tools --> YAML Settings --> Check Settings
 10. If all good, then proceed by quick reboot at developer tools.
 11. Go to dashboard and create new "Manual card"
-12. Copy-Paste "Car_card.txt" to the manual card code
+12. Copy "Car_card.txt" as **RAW** and paste to the manual card code
 13. My car is called "Tessu" so and that is also in the entity name so search and replace "tessu" with your own entity name and the "Tessu" with capital for main view
 14. Customise the pictures if available by search MYP_White and replace with your model like MS_Blue
 15. Enjoy!
@@ -46,7 +46,7 @@ homeassistant:<br>
 ### Wall Connector card
 1. Add https://www.home-assistant.io/integrations/tesla_wall_connector integration
 2. Go to dashboard and create new "Manual card"
-3. Copy-Paste "Wall_Connector_card.txt" to the manual card code
+3. Copy "Wall_Connector_card.txt" as **RAW** and paste to the manual card code
 4. Enjoy!
 
 ## TODO
