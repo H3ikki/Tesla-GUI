@@ -26,12 +26,12 @@ To make things easy you should have some addon to gain access to the file system
 ### Car card
 1. Add custom integration from https://github.com/alandtse/tesla
 2. Make it work with your vehicle as instructed
-3. Copy "Tesla GUI" folder https://github.com/H3ikki/Tesla-GUI/tree/main/Tesla-GUI from trunk to Home assistant file system, /config/www/ *here* So the result should be Config/www/Tesla GUI
+3. Copy "Tesla GUI" folder https://github.com/H3ikki/Tesla-GUI/tree/main/Tesla-GUI from trunk to Home assistant file system, /config/www/ *here* So the result should be Config/www/Tesla-GUI
 4. Add the Tesla GUI to configuration.yaml by adding following lines:<br>
 homeassistant:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;packages:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tesla_gui: !include www/Tesla GUI/Tesla GUI.yaml<br>
-5. Replace "tessu" with your tesla entity at /config/www/Tesla GUI/Tesla GUI.yaml
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tesla_gui: !include www/Tesla-GUI/Tesla GUI.yaml<br>
+5. Replace "tessu" with your tesla entity at /config/www/Tesla-GUI/Tesla GUI.yaml
 6. Check that everything is working by Developer tools --> YAML Settings --> Check Settings
 7. If all good, then proceed by quick reboot at developer tools.
 8. Go to dashboard and create new "Manual card"
