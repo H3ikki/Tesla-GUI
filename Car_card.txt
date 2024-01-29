@@ -547,8 +547,7 @@ cards:
               - type: image
                 title: ClimateIcon
                 image: >-
-                  /local/Tesla
-                  HA/Assets/Buttons/Tesla_Climate_Button_Power_On.png
+                  /local/Tesla-GUI/Assets/Buttons/Tesla_Climate_Button_Power_On.png
                 style:
                   top: 88%
                   left: 15%
@@ -556,8 +555,7 @@ cards:
                   height: null
                 state_image:
                   'off': >-
-                    /local/Tesla
-                    HA/Assets/Buttons/Tesla_Climate_Button_Power_Off.png
+                    /local/Tesla-GUI/Assets/Buttons/Tesla_Climate_Button_Power_Off.png
                 tap_action:
                   action: toggle
                 entity: climate.tessu_hvac_climate_system
@@ -594,8 +592,7 @@ cards:
               - type: image
                 title: ClimateIcon
                 image: >-
-                  /local/Tesla
-                  HA/Assets/Buttons/Tesla_Vent_Windows_Button_On.png
+                  /local/Tesla-GUI/Assets/Buttons/Tesla_Vent_Windows_Button_On.png
                 style:
                   top: 88%
                   left: 85%
@@ -603,8 +600,7 @@ cards:
                   height: null
                 state_image:
                   'off': >-
-                    /local/Tesla
-                    HA/Assets/Buttons/Tesla_Vent_Windows_Button_Off.png
+                    /local/Tesla-GUI/Assets/Buttons/Tesla_Vent_Windows_Button_Off.png
                 tap_action:
                   action: toggle
                 entity: climate.tessu_hvac_climate_system
